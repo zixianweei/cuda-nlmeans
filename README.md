@@ -1,29 +1,32 @@
 # cuda-nlmeans
 
-¶Ô±ÈÁË²»Í¬µÄ¾­µäÍ¼ÏñÈ¥Ôë·½·¨µÄĞ§¹ûºÍ Non-local Means È¥Ôë·½·¨µÄ¼ÓËÙĞ§¹û¡£½á¹ûÇë²é¿´ `article.pdf`¡£
+å¯¹æ¯”äº†ä¸åŒçš„ç»å…¸å›¾åƒå»å™ªæ–¹æ³•çš„æ•ˆæœå’Œ Non-local Means å»å™ªæ–¹æ³•çš„åŠ é€Ÿæ•ˆæœã€‚ç»“æœè¯·æŸ¥çœ‹ `article.pdf`ã€‚
 
-## È¥Ôë·½·¨ºÍ¼ÓËÙÆ½Ì¨
+## å»å™ªæ–¹æ³•å’ŒåŠ é€Ÿå¹³å°
 
-È¥Ôë·½·¨£ºÖĞÖµÂË²¨£¬¸ßË¹ÂË²¨£¬Ë«±ßÂË²¨ºÍ·Ç¾Ö²¿¾ùÖµÂË²¨¡£
+å»å™ªæ–¹æ³•ï¼šä¸­å€¼æ»¤æ³¢ï¼Œé«˜æ–¯æ»¤æ³¢ï¼ŒåŒè¾¹æ»¤æ³¢å’Œéå±€éƒ¨å‡å€¼æ»¤æ³¢ã€‚
 
-¼ÓËÙÆ½Ì¨£ºµ¥Ïß³Ì£¬¶àÏß³Ì(OpenMP)£¬CUDA¡£
+åŠ é€Ÿå¹³å°ï¼šå•çº¿ç¨‹ï¼Œå¤šçº¿ç¨‹(OpenMP)ï¼ŒCUDAã€‚
 
-## ÔÚ Google Colab ÖĞÔËĞĞ
+## åœ¨ Google Colab ä¸­è¿è¡Œ
 
-Ê¹ÓÃ [vcpkg](https://github.com/microsoft/vcpkg) ´î½¨ÁË»·¾³¡£ÆäÖĞ£¬CUDA ÊÇ¿ÉÑ¡Ïî¡£Èç¹ûĞèÒªÔËĞĞ CUDA Ïà¹ØµÄ´úÂë£¬ÇëĞŞ¸Ä Colab µÄÔËĞĞÊ±Îª**Ó²¼ş¼ÓËÙÆ÷-GPU**¡£
+~~ä½¿ç”¨ [vcpkg](https://github.com/microsoft/vcpkg) æ­å»ºäº†ç¯å¢ƒã€‚~~
 
-Google Colab µÄÔËĞĞ½Å±¾£º
+ä½¿ç”¨ apt å®‰è£…äº† opencv-contribã€‚å…¶ä¸­ï¼ŒCUDA æ˜¯å¯é€‰é¡¹ã€‚å¦‚æœéœ€è¦è¿è¡Œ CUDA ç›¸å…³çš„ä»£ç ï¼Œè¯·ä¿®æ”¹ Colab çš„è¿è¡Œæ—¶ä¸º**ç¡¬ä»¶åŠ é€Ÿå™¨-GPU**ã€‚
+
+Google Colab çš„è¿è¡Œè„šæœ¬ï¼š
 
 ```
 # cuda-nlmeans env setup
 !apt update
-!apt install -y build-essential tar curl zip unzip gcc g++ gdb make cmake bison
-!apt install -y autoconf libsass-dev libtool libxrandr-dev libxi-dev
-!apt install -y libxcursor-dev libxinerama-dev
-!git clone https://github.com/microsoft/vcpkg
-!./vcpkg/bootstrap-vcpkg.sh
-%cd /content/vcpkg
-!./vcpkg install opencv3[contrib]:x64-linux
+# !apt install -y build-essential tar curl zip unzip gcc g++ gdb make cmake bison
+# !apt install -y autoconf libsass-dev libtool libxrandr-dev libxi-dev
+# !apt install -y libxcursor-dev libxinerama-dev
+# !git clone https://github.com/microsoft/vcpkg
+# !./vcpkg/bootstrap-vcpkg.sh
+# %cd /content/vcpkg
+# !./vcpkg install opencv3[contrib]:x64-linux
+!apt install -y libopencv-contrib-dev
 
 # cuda-nlmeans build and test
 %cd /content
@@ -34,6 +37,6 @@ Google Colab µÄÔËĞĞ½Å±¾£º
 !./cuda-nlmeans
 ```
 
-## ÆäËû
+## å…¶ä»–
 
-Èç¹ûÓĞ¹ØÓÚ´úÂëµÄÒÉÎÊ£¬»¶Ó­Ìá issue¡£If any questions, an issue is welcomed.
+å¦‚æœæœ‰å…³äºä»£ç çš„ç–‘é—®ï¼Œæ¬¢è¿æ issueã€‚If any questions, an issue is welcomed.
