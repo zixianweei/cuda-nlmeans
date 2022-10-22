@@ -19,20 +19,15 @@ Google Colab 的运行脚本：
 ```
 # cuda-nlmeans env setup
 !apt update
-# !apt install -y build-essential tar curl zip unzip gcc g++ gdb make cmake bison
-# !apt install -y autoconf libsass-dev libtool libxrandr-dev libxi-dev
-# !apt install -y libxcursor-dev libxinerama-dev
-# !git clone https://github.com/microsoft/vcpkg
-# !./vcpkg/bootstrap-vcpkg.sh
-# %cd /content/vcpkg
-# !./vcpkg install opencv3[contrib]:x64-linux
+!apt install -y build-essential gcc g++ gdb make cmake
 !apt install -y libopencv-contrib-dev
+!apt install -y ninja-build
 
 # cuda-nlmeans build and test
 %cd /content
 !git clone https://github.com/zixgo/cuda-nlmeans.git
 %cd /content/cuda-nlmeans
-!cmake -DCMAKE_BUILD_TYPE=Release -S. -Bout "-DCMAKE_TOOLCHAIN_FILE=/content/vcpkg/scripts/buildsystems/vcpkg.cmake"
+!cmake -DCMAKE_BUILD_TYPE=Release -G Ninja -S. -Bout
 !cmake --build out
 !./cuda-nlmeans
 ```
