@@ -49,16 +49,15 @@ void test_compare_different_methods()
 	int patch_size = 7;
 
 	// image paths
-	cv::String root_path{ "../../../" };
 	cv::String image_name{ "cameraman" };
 	cv::String image_format{ ".png" };
 
-	cv::String image_path = root_path + image_name + image_format;
-	cv::String image_noise_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + image_format;
-	cv::String image_denoise_median_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_median" + image_format;
-	cv::String image_denoise_gaussian_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_gaussian" + image_format;
-	cv::String image_denoise_bilateral_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_bilateral" + image_format;
-	cv::String image_denoise_nlmeans_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_nlmeans" + image_format;
+	cv::String image_path = image_name + image_format;
+	cv::String image_noise_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + image_format;
+	cv::String image_denoise_median_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_median" + image_format;
+	cv::String image_denoise_gaussian_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_gaussian" + image_format;
+	cv::String image_denoise_bilateral_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_bilateral" + image_format;
+	cv::String image_denoise_nlmeans_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_nlmeans" + image_format;
 	
 	// read source image (without noise)
 	cv::Mat image = imread(image_path, cv::IMREAD_GRAYSCALE);
@@ -156,15 +155,14 @@ void test_compare_diffreent_platforms()
 	float h = 10.f;
 	int block_size = 11;
 	int patch_size = 7;
-	cv::String root_path{ "../../../" };
 	cv::String image_name{ "cameraman" };
 	cv::String image_format{ ".png" };
 
-	cv::String image_path = root_path + image_name + image_format;
-	cv::String image_noise_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + image_format;
-	cv::String image_denoise_cpu_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_cpu" + image_format;
-	cv::String image_denoise_omp_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_omp" + image_format;
-	cv::String image_denoise_gpu_path = root_path + image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_gpu" + image_format;
+	cv::String image_path = image_name + image_format;
+	cv::String image_noise_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + image_format;
+	cv::String image_denoise_cpu_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_cpu" + image_format;
+	cv::String image_denoise_omp_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_omp" + image_format;
+	cv::String image_denoise_gpu_path = image_name + "_noise" + "_sigma" + std::to_string(int(sigma)) + "_denoised_gpu" + image_format;
 
 	// read source image (without noise)
 	cv::Mat image = imread(image_path, cv::IMREAD_GRAYSCALE);
