@@ -1,0 +1,177 @@
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 28
+    },
+    "configurePresets": [
+        {
+            "name": "Default",
+            "displayName": "Default",
+            "binaryDir": "${sourceDir}/out",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": true
+            },
+            "hidden": true
+        },
+        {
+            "name": "Debug",
+            "displayName": "Debug",
+            "inherits": "Default",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "condition": {
+                "type": "notEquals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "Debug (Windows)",
+            "displayName": "Debug",
+            "inherits": "Default",
+            "generator": "Visual Studio 17 2022",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "MinSizeRel",
+            "displayName": "MinSizeRel",
+            "inherits": "Default",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            },
+            "condition": {
+                "type": "notEquals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "MinSizeRel (Windows)",
+            "displayName": "MinSizeRel",
+            "inherits": "Default",
+            "generator": "Visual Studio 17 2022",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "Release",
+            "displayName": "Release",
+            "inherits": "Default",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "condition": {
+                "type": "notEquals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "Release (Windows)",
+            "displayName": "Release",
+            "inherits": "Default",
+            "generator": "Visual Studio 17 2022",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "RelWithDebInfo",
+            "displayName": "RelWithDebInfo",
+            "inherits": "Default",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "condition": {
+                "type": "notEquals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "RelWithDebInfo (Windows)",
+            "displayName": "RelWithDebInfo",
+            "inherits": "Default",
+            "generator": "Visual Studio 17 2022",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Default",
+            "configurePreset": "MinSizeRel"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "Default",
+            "configurePreset": "MinSizeRel",
+            "output": {
+                "outputOnFailure": true
+            },
+            "execution": {
+                "noTestsAction": "error",
+                "stopOnFailure": true
+            }
+        }
+    ],
+    "packagePresets": [
+        {
+            "name": "Default",
+            "configurePreset": "MinSizeRel",
+            "generators": [
+                "TGZ"
+            ]
+        }
+    ],
+    "workflowPresets": [
+        {
+            "name": "Default",
+            "steps": [
+                {
+                    "type": "configure",
+                    "name": "MinSizeRel"
+                },
+                {
+                    "type": "build",
+                    "name": "Default"
+                },
+                {
+                    "type": "test",
+                    "name": "Default"
+                }
+            ]
+        }
+    ]
+}
