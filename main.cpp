@@ -1,4 +1,4 @@
-// Copyright 2022 zixgo
+// Copyright 2024 zixianweei
 // Use of this source code is governed by a MIT-style license that can be
 // found in the LICENSE file.
 
@@ -7,7 +7,6 @@
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
-#include <opencv2/xphoto.hpp>
 #include "utilities.h"
 
 void test_compare_different_methods();

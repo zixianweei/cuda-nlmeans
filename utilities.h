@@ -1,9 +1,9 @@
-#ifndef UTILITIES_H
-#define UTILITIES_H
-
-// Copyright 2022 zixgo
+// Copyright 2024 zixianweei
 // Use of this source code is governed by a MIT-style license that can be
 // found in the LICENSE file.
+
+#ifndef UTILITIES_H
+#define UTILITIES_H
 
 #include <iostream>
 #include <cmath>
